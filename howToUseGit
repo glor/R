@@ -5,5 +5,6 @@ dateien hinzufügen: (im hauptverzeichnis des repositories)
 dateien hochladen: (im hauptverzeichnis des repositories)
   git commit -m "hier steht eine random nachricht"
   git push
-
+neue dateien holen:
+  git pull
 oder alternativ einfach über die website bearbeiten
