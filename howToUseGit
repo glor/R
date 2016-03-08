@@ -1,0 +1,9 @@
+git repo holen:
+  git clone https://github.com/glor/R.git
+dateien hinzufügen: (im hauptverzeichnis des repositories)
+  git add *
+dateien hochladen: (im hauptverzeichnis des repositories)
+  git commit -m "hier steht eine random nachricht"
+  git push
+
+oder alternativ einfach über die website bearbeiten
