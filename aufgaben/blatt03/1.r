@@ -32,3 +32,9 @@ boxplot(maeuse$speed ~ maeuse$health, date = maeuse, main = "kranke Maeuse" )
 t.test(formula=speed~health, data=maeuse, var.equal=TRUE, alternative="less", conf.level=0.95)
 #p-Wert:# p-Wert von 2.376e-05 kleiner als 0.05, d.h. es gibt einen signifikanten Unterschied —> Nullhypothese kann abgelehnt werden, die kranken Mäuse brauchen länger
 #Konfidenzintervalle # 95% Intervall —> in 95% der so ermittelten Fälle ist Unterschied zwischen den Populationen erkennbar
+
+#3 Aufgabe 2:
+#3.1
+laus = read.table(file = "lice.txt", sep="\t", dec = ".", header = TRUE)
+# H1: Kita2 hat weniger Kopflaeuse gehabt
+# H0: Kita2 hat gleich viel oder mehr Kopflaeuse als Kita1 gehabt
