@@ -34,7 +34,12 @@ t.test(formula=speed~health, data=maeuse, var.equal=TRUE, alternative="less", co
 #Konfidenzintervalle # 95% Intervall —> in 95% der so ermittelten Fälle ist Unterschied zwischen den Populationen erkennbar
 
 #3 Aufgabe 2:
-#3.1
+#3.2
 laus = read.table(file = "lice.txt", sep="\t", dec = ".", header = TRUE)
 # H1: Kita2 hat weniger Kopflaeuse gehabt
 # H0: Kita2 hat gleich viel oder mehr Kopflaeuse als Kita1 gehabt
+#3.4
+boxplot(laus$number ~ laus$group, date = maus, main = "Datenverteilung”)
+#Erkenntnis: Gruppe 2 ist definitiv nicht normalerverteilt, die beiden Gruppen besitzen keine Var.homogenitaet!
+#3.5 
+#kein Test anwendbar, ist aber auch nicht nötig, da die Daten eindeutig sind (es existiert klar ein Unterschied)
