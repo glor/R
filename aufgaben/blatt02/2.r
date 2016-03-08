@@ -28,4 +28,4 @@ boxplot(Gewicht ~ Sorte, data = tabelle, main = "Futtersorten", col=c("red", "ye
 #2.5
 #Boxplot stellt insbesondere die Verteilung der 0, 25, 50, 75 und 100% Quantile dar und nicht wie Histogramme
 # die Verteilung der gesamten Haeufigkeiten. Ausserdem wird der Median durch den Strich durch die Box dargestellt.
-# Bei Normalverteilung hat man relativ symmetrische Boxen. #Blatt 2
+# Bei Normalverteilung hat man relativ symmetrische Boxen.
