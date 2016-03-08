@@ -10,16 +10,16 @@ sorte1 = subset(tabelle, tabelle$Sorte==1)
 sorte2 = subset(tabelle, tabelle$Sorte==2)
 sorte3 = subset(tabelle, tabelle$Sorte==3)
 hist(sorte1$Gewicht) #Fenster geoeffnet lassen
-dev.print(pdf, "~/Desktop/r/blatt1/sorte1.pdf")
+dev.print(pdf, "./sorte1.pdf")
 hist(sorte2$Gewicht)
-dev.print(pdf, "~/Desktop/r/blatt1/sorte2.pdf")
+dev.print(pdf, "./sorte2.pdf")
 hist(sorte3$Gewicht)
-dev.print(pdf, "~/Desktop/r/blatt1/sorte3.pdf")
+dev.print(pdf, "./sorte3.pdf")
 #breaks in hist() kann man zB modifizieren, wenn man die Anzahl der Saeulen modifizieren moechte
 
 #2.3
 boxplot(Gewicht ~ Sorte, data = tabelle, main = "Futtersorten", ylab = "Gewicht", xlab = "Sorte")
-dev.print(pdf, "~/Desktop/r/blatt1/futtersorten.pdf")
+dev.print(pdf, "./futtersorten.pdf")
 
 
 #2.4
