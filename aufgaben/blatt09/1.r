@@ -38,4 +38,5 @@ summary(mcmp)
 soil.int <- confint(mcmp)
 soil.int
 
-#INTERPRETATION FOLGT!
+#INTERPRETATION
+# Die Gruppen A und B sowie B und D sind signifikant unterschiedlich voneinander (p<0.01).
