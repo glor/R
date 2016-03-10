@@ -50,3 +50,20 @@ Vorgehen:
 5. NV (Boxplot)
 6. lineares Modell signifikant ansehen
 7. konfident & Vorhersagebaender zeichnen
+
+#7.3
+temperatures = read.table(file="US_temperatures.txt", sep = "\t", dec = ".", header = TRUE)
+plot(temperatures)
+# initiale Beobachtung (rein optisch): Latitude und JanTemp scheinen stark zu korrelieren
+
+# Regressionsmodell: y = a*x1 + b*x2 +c
+# wobei JanTemp = Latitude*x1 + Longitude*x2 +c
+temperaturesmodel <- lm(JanTemp ~ Lat + Long, data = temperatures)
+summary (temperaturesmodel)
+# Beide Faktoren sind signifikant (bei beiden ist p < 0.05)
+# —> JanTemp = 0.133*Long + -2.163*Lat + 98.645
+
+# Prüfen der Multi-Kollinearität
+# Dass Lat und Long korrelieren, wäre nicht sinnvoll (da es nur etwas über die Aussage der Städtewahl etwas sagen würde). Kann man auch so zeigen:
+cor.test(formula= ~Lat + Long, data = temperatures, method = "spearman", alternative= "two.sided”)
+# —> keine Mulitkollinearität gegeben
