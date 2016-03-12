@@ -3,7 +3,7 @@
 #1.1 Runterladen
 
 #1.2
-hefe = read.table(file="yeast.txt", sep="\t", dec=".", header=TRUE)
+hefe = read.table(file="yeast.txt", sep="t", dec=".", header=TRUE)
 
 #1.3
 boxplot(hefe$content ~ hefe$type, data = hefe, main = "hefe" )

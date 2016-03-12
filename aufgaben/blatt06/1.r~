@@ -3,7 +3,7 @@
 #Prüfen der Normalerverteilung mit Boxplot:
 boxplot(cattle$Widerrist, cattle$Rumpf)
 # —> Widerrist ist nicht normalerveteilt —> Spearman
-cor(cattle, use = "all.obs", method = "spearman")
+cor(cattle, use = "all.obs", method = "spearman”)
 
 #6.2
 #Da hier bereits gerichtete Hypothesen sinnvoll sind:
