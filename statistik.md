@@ -1,34 +1,34 @@
-# Allgemeines
-## data access
+### Allgemeines
+#### data access
 vek[vek<0]
 mat[ ,1]
 mat[1, ]
-## subset
+#### subset
 subset(x = data vector, subset = logical expression, )
 e.g. subset(potato, Sorte==1|Sorte==3)
-## rep
+#### rep
 rep(x = data, times = numeric value)
-## seq
+#### seq
 seq.int(from, to, by, ) // length.out
-## matrix
+#### matrix
 // sigle type for whole matrix
 matrix(x = data, ncol, nrow, byrow=FALSE)
-## data.frame
+#### data.frame
 data.frame(... = spalten, row.names=NULL)
     row.names: NULL | string = column to be used as row names | vector of names
-## read.table
+#### read.table
    read.table("filename", header = FALSE, sep = '')
-## write.table
+#### write.table
 write.table(potato, "filename", sep = '\t', dec = ".")
-## levels, relevel
+#### levels, relevel
 melon$variety=relevel(melon$variety, ref="B")
 für Multiple Mittelwertskotze
-## ordered, reorder
+#### ordered, reorder
 BRASSICA$group <- ordered(BRASSICA$group, c("control", "ancy"))
-## naming col/row
+#### naming col/row
 colnames(x)
 colnames(x) <- c(names)
-## convert to/from flatfiles
+#### convert to/from flatfiles
 | Feld: | 1 | 2 | 3 | 4 |
 | Sorte |   |   |   |   |
 |     1 |   |   |   |   |
@@ -42,52 +42,52 @@ Feld = c(rep(1,5), rep(2,5), rep(3,5), rep(4,5))
 Sorte = rep(1:5, 4)
 potato = data.frame(Feld, Sorte, Ertrag)
 potato 
-## cd/pwd
+#### cd/pwd
 setwd(getwd())
-# Deskriptive Statistik
-## Mittelwert
+### Deskriptive Statistik
+#### Mittelwert
 mean(datenfeld x)
-## Standardabweichung
+#### Standardabweichung
 sd(zahlenfeld x)
-## Varianz
+#### Varianz
 var(x)
-## Min,Max,Median, Quantile
+#### Min,Max,Median, Quantile
 min(numeric objects)
 max(numeric objects)
 median(...)
 quantile(x=numeric vector, p=propability vector) // p == probs == wahrscheinlichkeiten. 0.25 fürs erste und 0.75 fürs 4. quartil
 example: quantile(1:10, p=c(0.25,0.75))
-## tapply
+#### tapply
 tapply(Vek X, INDEX = index zum gruppieren, FUN = NULL)
 tapply(potato$Ertrag, INDEX=potato$Sorte, FUN=min)
-## summary
+#### summary
 summary(object)
 
-# Grafiken in R
-## formula
+### Grafiken in R
+#### formula
    values y ~ grouping factor
-## hist
+#### hist
    hist(x=value vector, breaks=c(bereiche der balken))
-## boxplot
+#### boxplot
 boxplot(formula, data = NULL)
-## barplot
+#### barplot
 barplot(vec)
-## scatterplot
+#### scatterplot
 plot(x, y)
-## plot
+#### plot
 plot(x = 2d data)
 plot(x, y)
-## fancy graphics
+#### fancy graphics
 arguments:
 - main="titel"
 - col = c(colorstrings)
 - ylab = "Achsenbeschriftung"
 - xlab = "Achsenbeschriftung"
-## export graphics
+#### export graphics
 nach dem öffnen einer grafik:
 dev.print(pdf, "filename.pdf")
 siehe skript
-# Zweistichprobentests
+### Zweistichprobentests
 | Test         | VH | NV |
 |--------------+----+----|
 | t-test       | x  | x  |
@@ -110,32 +110,32 @@ two.sided
 H0: x == y
 H1: x != y
 
-## t-test
+#### t-test
 Vorrausetzungen: VH, NV
 !!! var.equal=TRUE für den normalen t-test
 t.test(x, y=NULL, alternative = c("less", "greater", "two.sided"), paired=FALSE, var.equal=FALSE, conf.level=0.95)
 wenn p-value > 0.05, dann Nullhypothese
-## t-welch-test
+#### t-welch-test
 Vorrausetzungen: NV
 wie t.test, nur mit var.equal=FALSE
 t.test(x, y=NULL, alternative = c("less", "greater", "two.sided"), paired=FALSE, var.equal=FALSE, conf.level=0.95)
-## TODO wilcoxon-test
+#### TODO wilcoxon-test
 Vorrausetzungen: VH
 wilcox.test(x, y = NULL, alternative = c("two.sided", "less", "greater"), paired = FALSE, exact = NULL, correct=FALSE, conf.level = 0.95)
 wilcox.test(formula=content~type, data=hefe,alternative="less",conf.level=0.95,dist="exact")
 TODO: exact, dist, correct
 // what the hell ist dist="exact"
-## paired tests
+#### paired tests
 Wenn zwei Messungen ‘verbunden’ (= ‘gepaart’) sind (z.B. ein Patient vor und nach einer Behandlung) nimmt man den gepaarten Test.
-# chi-quadrat-test
+### chi-quadrat-test
 nur auf quantitativen daten
-## Anpassungstest
+#### Anpassungstest
 überprüfen, ob daten einer bestimmten (gegebenen) verteilung folgen
 H0 : F_Versuch (x) = F_Mendel (x)
 H1 : F_Versuch (x) != F_Mendel (x)
 chisq.test(c(60,16,20,4), c(9,3,3,1))
 correct = TRUE, wenn Fallzahl <20
-## Homogenitätstest
+#### Homogenitätstest
 Testen ob zwei Datensätze der selben Verteilung folgen
 
 H0 : πtreated. (x) == πcontrol (x)
@@ -144,26 +144,26 @@ chisq.test(matrix(c(12,9,14,7), ncol=2), correct = FALSE)
 
 // X-squared = 0.4038, df = 1, p-value = 0.5251
 // Je nachdem, von welchem alpha-Fehler man ausgeht, ist p signifikant oder nicht. Nimmt man alpha = 5% = 0,05 an, so ist p nicht signifikant und somit wird die Nullhypothese angenommen.
-# Korrelationsanalyse
+### Korrelationsanalyse
 prüft, ob zwischen datensätzen eine korelation vorliegt.
 H0: rho =  0 // rho sieht aus wie ein p und ist der korelationskoeff
 H1: rho != 0
-## Korelationskoeffizient
+#### Korelationskoeffizient
 Der Korelationskoeffizient gibt an, wie stark daten miteinander korelieren, also z.B. wie stark die steuung des linearen zusammenhangs ist.
 cor(x, y=NULL, method = "spearman"|"pearson")
-## analyse
+#### analyse
 cor.test(formula = ~Rumpf+Widerrist, data = cattle, method = "spearman", alternative = "greater”)
 //Da p-Wert kleiner als 0.1, ist Korrelation signifikant.
 //Korrelationswert von 0.58 bedeutet mäßig starke Korrelation zwischen Rumpfhöhe und Widerrist.
-## Pearson
+#### Pearson
    wenn alle Datensätze NV ist
-## Spearman
+#### Spearman
    wenn einer der Datensätze nicht NV ist
-# Residuen
+### Residuen
 Rediduen sind die Abweichungen vom Modell (also etwa einer linearen Regression)
 Lassen sie ein Muster erkennen, so ist vermutlich das Modell nicht geeignet. Wir müssen dann VarianzINhomogenität annehmen.
 http://www.statistics4u.info/fundstat_germ/img/hl_residuals.png
-# Regressionsanalyse
+### Regressionsanalyse
 Vorraussetzungen:
 1. Prediktorstufen >= 2
 2. Wiederholungen pro Stufe >= 3
@@ -205,7 +205,7 @@ Vorgehen:
    matlines(x = x, y=pp, col="red") //rot = vorhersageband
    matlines(x = x, y=pc, col="green") //grün = konfidenzband
 
-# Anova Varianzanalyse
+### Anova Varianzanalyse
 Vorraussetzungen:
 1. VH der resid
 2. NV (nicht besonders empfindlich) der resid
@@ -224,7 +224,7 @@ Ablauf:
 5. Hypothesen
 6. anova(model)
 // F-Werte: Einflüsse der Faktoren
-# Multiple Mittelwerttests
+### Multiple Mittelwerttests
 Vorraussetzung:
 - NV
 - VH
@@ -254,30 +254,30 @@ mcmp=glht(melon.model, linfct=mcp(variety="Dunnet"), alternative="less")	//less 
 summary(mcmp, test=adjusted(type="bonferroni"))
 plot(confint(mcmp))
 
-## Tukey
+#### Tukey
 alle gegen alle - immer two.sided
-## Dunnet
+#### Dunnet
 alle gegen einen
-## p-value-Korrektur
-### Bonferroni
+#### p-value-Korrektur
+##### Bonferroni
 ergebnis der summe aller werte
-### Bonferroni-Holm
+##### Bonferroni-Holm
 summe vom ergebnis aller werte
-# Varianzhomogenität
-## boxplot
+### Varianzhomogenität
+#### boxplot
    wenn die kästen gleich groß sind, dann liegt Varianzhomogenität vor
-## levene-test
+#### levene-test
 muss durchfallen!
 //H0: homogen
 //H1: nicht homogen
 library(car)
 leveneTest(y=resid.values, group=grp)
 p-value < 5% => SIGNIFIKANT => Alternativhypothese, NICHT Varianzhomogen
-# Normalverteilung
-## testen
+### Normalverteilung
+#### testen
    boxplot symmetrisch => NV
    keine Ausreißer
-# Freiheitsgrade
+### Freiheitsgrade
 in R (ihm) oft mit df angegeben.
 
 f = n - u
